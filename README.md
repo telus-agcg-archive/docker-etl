@@ -8,6 +8,10 @@ Provides access to commonly used ETL tools
 * freetds
 * jq
 * psql
+* csvquote
+* mdbtools
+* sed (gsed)
+* gzip
 
 # Usage
 
