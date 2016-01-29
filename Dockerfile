@@ -33,6 +33,7 @@ RUN \
     jq \
     postgresql-client \
     sed \
+    gawk \
     gzip && \
 
   # symlink gsed to sed

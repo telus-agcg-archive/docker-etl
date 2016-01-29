@@ -12,6 +12,7 @@ Provides access to commonly used ETL tools
 * mdbtools
 * sed (gsed)
 * gzip
+* awk (gawk)
 
 # Usage
 
