@@ -36,12 +36,16 @@ RUN \
     gawk \
     gzip && \
 
+  rm /etc/freetds.conf && \
+
   # symlink gsed to sed
   ln -s /bin/sed /bin/gsed && \
 
   #clean up
   apk del build-base libtool autoconf automake glib-dev openssl && \
   rm -rf /tmp/*
+
+COPY alpine/etc/freetds.conf /etc
 
 # override entry point from parent image
 ENTRYPOINT []
