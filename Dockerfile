@@ -45,7 +45,7 @@ RUN \
   apk del build-base libtool autoconf automake glib-dev openssl && \
   rm -rf /tmp/*
 
-COPY alpine/etc/freetds.conf /etc
+COPY alpine/etc/freetds.conf /etc/
 
 # override entry point from parent image
 ENTRYPOINT []
