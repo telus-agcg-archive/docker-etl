@@ -1,6 +1,7 @@
 FROM ruby:2.3.0-alpine
 
 MAINTAINER John Allen <john.allen@technekes.com>
+MAINTAINER Jack Ross <jack.ross@technekes.com>
 
 RUN \
   cd /tmp && \
@@ -11,14 +12,22 @@ RUN \
     ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
 
   # install build related tools
-  apk --no-cache add \
-    build-base \
-    openssl \
-    libtool \
+  apk --no-cache add --virtual .build_deps \
     autoconf \
     automake \
+    build-base \
     glib \
-    glib-dev && \
+    glib-dev \
+    libc-dev \
+    libtool \
+    linux-headers \
+    openssl-dev \
+    ruby-dev && \
+
+  apk --no-cache add --virtual .gem_deps \
+    postgresql-dev \
+    libxml2-dev \
+    libxslt-dev && \
 
   # install csvquote
   wget "https://github.com/dbro/csvquote/archive/master.zip" && \
@@ -35,12 +44,13 @@ RUN \
 
   # install apk versions of tools
   apk --no-cache add \
+    bash \
     freetds \
+    gawk \
+    gzip \
     jq \
     postgresql-client \
-    sed \
-    gawk \
-    gzip && \
+    sed && \
 
   rm /etc/freetds.conf && \
 
@@ -48,7 +58,7 @@ RUN \
   ln -s /bin/sed /bin/gsed && \
 
   #clean up
-  apk del build-base libtool autoconf automake glib-dev openssl && \
+  # apk del build-base libtool autoconf automake glib-dev openssl && \
   rm -rf /tmp/*
 
 COPY alpine/etc/freetds.conf /etc/
