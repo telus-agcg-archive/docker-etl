@@ -54,7 +54,11 @@ RUN \
     gzip \
     jq \
     postgresql-client \
-    sed && \
+    sed \
+    gpgme && \
+
+  apk --no-cache add \
+    gnupg1 && \
 
   rm /etc/freetds.conf && \
 
