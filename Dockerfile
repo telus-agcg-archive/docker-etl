@@ -6,6 +6,8 @@ MAINTAINER Jack Ross <jack.ross@technekes.com>
 RUN \
   cd /tmp && \
 
+  apk --no-cache add wget ca-certificates && \
+
   wget "s3.amazonaws.com/aws-cli/awscli-bundle.zip" -O "awscli-bundle.zip" && \
     unzip awscli-bundle.zip && \
     apk --no-cache add groff less python && \
