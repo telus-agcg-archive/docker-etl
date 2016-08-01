@@ -29,6 +29,7 @@ RUN \
 
   apk --no-cache add --virtual .gem_deps \
     postgresql-dev \
+    sqlite-dev \
     libxml2-dev \
     libxslt-dev && \
 
