@@ -15,6 +15,7 @@ RUN \
 
   # install build related tools
   apk --no-cache add --virtual .build_deps \
+    git \
     autoconf \
     automake \
     build-base \
