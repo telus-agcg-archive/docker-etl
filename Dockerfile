@@ -1,4 +1,4 @@
-FROM ruby:2.3.0-alpine
+FROM ruby:2.3-alpine
 
 MAINTAINER John Allen <john.allen@technekes.com>
 MAINTAINER Jack Ross <jack.ross@technekes.com>
