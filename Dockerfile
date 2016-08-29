@@ -76,6 +76,7 @@ RUN \
   # install apk versions of tools
   apk --no-cache add \
     bash \
+    coreutils \
     freetds \
     gawk \
     gzip \
