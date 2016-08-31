@@ -45,7 +45,8 @@ RUN \
     postgresql-dev \
     sqlite-dev \
     libxml2-dev \
-    libxslt-dev && \
+    libxslt-dev \
+    tzdata && \
 
   # install s3fs
   cd /tmp && \
