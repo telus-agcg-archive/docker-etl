@@ -77,6 +77,7 @@ RUN \
   # install apk versions of tools
   apk --no-cache add \
     bash \
+    zsh \
     coreutils \
     freetds \
     gawk \
@@ -86,6 +87,7 @@ RUN \
     sed \
     gpgme && \
 
+  # fix for gpg
   apk --no-cache add \
     gnupg1 && \
 
@@ -100,5 +102,11 @@ RUN \
 
 COPY alpine/etc/freetds.conf /etc/
 
+RUN sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`" || true
+
+WORKDIR $HOME
+
+COPY alpine/root/ .
+
 # override entry point from parent image
-ENTRYPOINT []
+ENTRYPOINT ["/bin/zsh"]
