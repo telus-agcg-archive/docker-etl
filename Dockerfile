@@ -100,12 +100,13 @@ RUN \
   # apk del build-base libtool autoconf automake glib-dev openssl && \
   rm -rf /tmp/*
 
-COPY alpine/etc/freetds.conf /etc/
-
 RUN sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`" || true
 
-WORKDIR $HOME
+WORKDIR /etc
+COPY alpine/etc/ .
 
+ENV HOME /root
+WORKDIR $HOME
 COPY alpine/root/ .
 
 # override entry point from parent image
