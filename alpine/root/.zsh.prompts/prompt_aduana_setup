@@ -67,10 +67,9 @@ function prompt_aduana_setup {
  # ruby info (rvm, rbenv)
  zstyle ':prezto:module:ruby:info:version' format '[%v]'
 
- TF='[%D{%Y-%m-%d %H:%M:%S}]'
- PROMPT="${__PROMPT_SKWP_COLORS[3]}%n%f@${__PROMPT_SKWP_COLORS[2]}%m%f ${__PROMPT_SKWP_COLORS[5]}$TF %~%f "'$git_info[prompt]'"$ "
- # RPROMPT='%F{blue}${ruby_info[version]}'
- # RPROMPT='[%D{%Y-%m-%d %H:%M:%S}]'
+ TF='${__PROMPT_SKWP_COLORS[1]}[%D{%Y-%m-%d %H:%M:%S}]%f'
+ PROMPT="${__PROMPT_SKWP_COLORS[3]}%n%f@${__PROMPT_SKWP_COLORS[2]}%m%f $TF ${__PROMPT_SKWP_COLORS[5]}%~%f "'$git_info[prompt]'"$ "
+ RPROMPT='%F{blue}${ruby_info[version]}'
 }
 
 prompt_aduana_setup "$@"
