@@ -85,7 +85,9 @@ RUN \
     jq \
     postgresql-client \
     sed \
-    gpgme && \
+    gpgme \
+    ttf-ubuntu-font-family \
+    graphviz && \
 
   # fix for gpg
   apk --no-cache add \
